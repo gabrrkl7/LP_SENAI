@@ -94,27 +94,63 @@ Para mais informações acesse [Aula 01: Fluxogramas.](https://www.notion.so/cai
 
    ```mermaid
    flowchart TD
-    G["Sua resposta aqui"] 
+    start(( Início )) --> input1[\ Digite o primeiro número \]
+    input1 --> input2[\ Digite o segundo número \]
+    input2 --> input3[\ Digite o terceiro número \]
+    input3 --> verification1{num1 > num2?}
+    verification1 --> |Sim| verification2{num1 > num3?}
+    verification1 --> |Não| verification3{num2 > num3?}
+    verification2 --> |Sim| A[/ Maior é num1 /]
+    verification2 --> |Não| B[/ Maior é num3 /]
+    verification3 --> |Sim| A
+    verification3 --> |Não| C[/ Maior é num2 /]
+    A --> finish([ Fim ])
+    B --> finish
+    C --> finish
    ```
 
 8. Construa um fluxograma para calcular o fatorial de um número fornecido pelo usuário.
 
    ```mermaid
    flowchart TD
-    H["Sua resposta aqui"] 
+    A(( Início )) --> B[\ Digite um número \]
+    B --> C{Número >= 0?}
+    C --> |Sim| D[Inicializar fatorial = 1]
+    D --> E{num > 1?}
+    E --> |Sim| F[Multiplicar fatorial por num]
+    E --> |Não| G[\ Exibir fatorial \]
+    F --> D
+    G --> finish([ Fim ])
+    C --> |Não| H[\ Exibir erro \]
+    H --> finish
    ```
 
 9. Elabore um fluxograma para verificar se um número digitado pelo usuário é par.
 
    ```mermaid
    flowchart TD
-      I["Sua resposta aqui"]  
+    start(( Início )) --> input[\ Digite um número \]
+    input --> verification{Número % 2 == 0?}
+    verification --> |Sim| A[/ Número é Par /]
+    verification --> |Não| B[/ Número é Ímpar /]
+    A --> finish([ Fim ])
+    B --> finish
    ```
 
 10. Elabore um fluxograma para verificar se um número digitado pelo usuário é primo.
 
    ```mermaid
    flowchart TD
-      J["Sua resposta aqui"]  
+    start(( Início )) --> input[\ Digite um número \]
+    input --> verification{Número > 1?}
+    verification --> |Não| A[/ Não é Primo /]
+    verification --> |Sim| check[Verificar divisores]
+    check --> divisors{Tem divisores?}
+    divisors --> |Sim| B[/ Não é Primo /]
+    divisors --> |Não| C[/ É Primo /]
+    A --> finish([ Fim ])
+    B --> finish
+    C --> finish
+
    ```
 
